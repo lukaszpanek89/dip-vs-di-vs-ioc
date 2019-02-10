@@ -1,4 +1,4 @@
-package com.lpanek.dev.softwareplant.dip.vs.di.vs.ioc.resources.typical.implementation1;
+package com.lpanek.dev.softwareplant.dip.vs.di.vs.ioc.resources.typical.implementation.first;
 
 public final class ResourceAnemia {
 

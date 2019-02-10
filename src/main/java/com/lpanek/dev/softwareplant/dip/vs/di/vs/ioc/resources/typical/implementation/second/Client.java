@@ -1,4 +1,4 @@
-package com.lpanek.dev.softwareplant.dip.vs.di.vs.ioc.resources.typical.implementation2;
+package com.lpanek.dev.softwareplant.dip.vs.di.vs.ioc.resources.typical.implementation.second;
 
 import com.google.common.collect.Lists;
 import java.time.DayOfWeek;

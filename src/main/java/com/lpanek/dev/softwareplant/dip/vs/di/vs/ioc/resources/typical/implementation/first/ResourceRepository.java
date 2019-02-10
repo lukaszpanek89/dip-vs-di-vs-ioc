@@ -1,4 +1,4 @@
-package com.lpanek.dev.softwareplant.dip.vs.di.vs.ioc.resources.typical.implementation2;
+package com.lpanek.dev.softwareplant.dip.vs.di.vs.ioc.resources.typical.implementation.first;
 
 import java.util.HashMap;
 import java.util.Map;
