@@ -7,16 +7,6 @@ public class ResourceRepository {
 
 	private final Map<ResourceId, ResourceAnemia> repository = createPrepopulatedRepository();
 
-	private Map<ResourceId, ResourceAnemia> createPrepopulatedRepository() {
-		Map<ResourceId, ResourceAnemia> repository = new HashMap<>();
-
-		ResourceId resourceId = new ResourceId("john.doe");
-		ResourceAnemia resourceAnemia = new ResourceAnemia(resourceId);
-		repository.put(resourceId, resourceAnemia);
-
-		return repository;
-	}
-
 	private final ResourceFactory resourceFactory;
 
 	public ResourceRepository(ResourceFactory resourceFactory) {
@@ -38,5 +28,15 @@ public class ResourceRepository {
 		}
 		ResourceAnemia resourceAnemia = resource.toAnemia();
 		repository.put(resourceId, resourceAnemia);
+	}
+
+	private Map<ResourceId, ResourceAnemia> createPrepopulatedRepository() {
+		Map<ResourceId, ResourceAnemia> repository = new HashMap<>();
+
+		ResourceId resourceId = new ResourceId("john.doe");
+		ResourceAnemia resourceAnemia = new ResourceAnemia(resourceId);
+		repository.put(resourceId, resourceAnemia);
+
+		return repository;
 	}
 }
