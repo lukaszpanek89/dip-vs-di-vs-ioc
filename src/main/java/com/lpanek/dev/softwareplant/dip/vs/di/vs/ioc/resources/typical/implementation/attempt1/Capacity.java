@@ -1,4 +1,4 @@
-package com.lpanek.dev.softwareplant.dip.vs.di.vs.ioc.resources.typical.implementation.first;
+package com.lpanek.dev.softwareplant.dip.vs.di.vs.ioc.resources.typical.implementation.attempt1;
 
 import java.time.DayOfWeek;
 import java.util.concurrent.TimeUnit;

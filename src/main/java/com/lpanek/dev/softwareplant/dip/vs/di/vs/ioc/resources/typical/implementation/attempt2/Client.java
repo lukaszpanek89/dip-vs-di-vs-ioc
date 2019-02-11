@@ -1,5 +1,6 @@
-package com.lpanek.dev.softwareplant.dip.vs.di.vs.ioc.resources.typical.implementation.first;
+package com.lpanek.dev.softwareplant.dip.vs.di.vs.ioc.resources.typical.implementation.attempt2;
 
+import com.google.common.collect.Lists;
 import java.time.DayOfWeek;
 import java.util.concurrent.TimeUnit;
 
@@ -8,7 +9,7 @@ public class Client {
 	public static void main(String[] args) {
 		TeamService teamService = new TeamService();
 		TaskService taskService = new TaskService();
-		ResourceFactory resourceFactory = new ResourceFactory(teamService, taskService);
+		ResourceFactory resourceFactory = new ResourceFactory(Lists.newArrayList(teamService, taskService));
 		ResourceRepository resourceRepository = new ResourceRepository(resourceFactory);
 
 		ResourceId resourceId = new ResourceId("john.doe");

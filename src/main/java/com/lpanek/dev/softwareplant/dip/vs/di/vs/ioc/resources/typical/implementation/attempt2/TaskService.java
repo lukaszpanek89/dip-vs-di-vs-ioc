@@ -1,4 +1,4 @@
-package com.lpanek.dev.softwareplant.dip.vs.di.vs.ioc.resources.typical.implementation.second;
+package com.lpanek.dev.softwareplant.dip.vs.di.vs.ioc.resources.typical.implementation.attempt2;
 
 public class TaskService implements ResourceCapacityObserver {
 
