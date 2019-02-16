@@ -2,7 +2,7 @@ package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt1.typical_imp
 
 import java.time.LocalDate;
 
-public class DatePeriod {
+public final class DatePeriod {
 
 	private final LocalDate startDate;
 

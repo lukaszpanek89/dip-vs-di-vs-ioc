@@ -13,7 +13,7 @@ public final class PercentageAvailability {
 		this.availability = availability;
 	}
 
-	public double normalizedToOne() {
+	double normalizedToOne() {
 		return availability / HUNDRED_PERCENT;
 	}
 }
