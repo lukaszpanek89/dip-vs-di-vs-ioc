@@ -10,13 +10,13 @@ import java.time.LocalDate;
 import java.util.Map;
 
 // TODO: Find better name
-public class ResourceWorkloadPlanProviderImpl implements ResourceWorkloadProvider {
+public class ResourceWorkloadProviderImpl implements ResourceWorkloadProvider {
 
 	private final WorkloadPlanRepository workloadPlanRepository;
 
 	private final Map<WorkloadPlanId, WorkloadPlan> workloadPlanCache;
 
-	public ResourceWorkloadPlanProviderImpl(WorkloadPlanRepository workloadPlanRepository) {
+	public ResourceWorkloadProviderImpl(WorkloadPlanRepository workloadPlanRepository) {
 		this.workloadPlanRepository = workloadPlanRepository;
 		this.workloadPlanCache = Maps.newHashMap();
 	}

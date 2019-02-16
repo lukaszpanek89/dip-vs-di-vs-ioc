@@ -15,7 +15,7 @@ import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt2.dependency_i
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt2.dependency_inversion_using_abstractions.team.TeamId;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt2.dependency_inversion_using_abstractions.team.TeamRepository;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt2.dependency_inversion_using_abstractions.workloadplan.WorkloadPlanRepository;
-import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt2.dependency_inversion_using_abstractions.workloadplan.resource.ResourceWorkloadPlanProviderImpl;
+import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt2.dependency_inversion_using_abstractions.workloadplan.resource.ResourceWorkloadProviderImpl;
 import java.time.LocalDate;
 import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt2.dependency_inversion_using_abstractions.Constants.TEAM_OAKS_ID;
 
@@ -25,7 +25,7 @@ public class Client {
 		WorkloadPlanRepository workloadPlanRepository = new WorkloadPlanRepository();
 		HolidayPlanRepository holidayPlanRepository = new HolidayPlanRepository();
 
-		ResourceWorkloadProvider resourceWorkloadProvider = new ResourceWorkloadPlanProviderImpl(workloadPlanRepository);
+		ResourceWorkloadProvider resourceWorkloadProvider = new ResourceWorkloadProviderImpl(workloadPlanRepository);
 		ResourceHolidayProvider resourceHolidayProvider = new ResourceHolidayProviderImpl(holidayPlanRepository);
 		ResourceFactory resourceFactory = new ResourceFactory(resourceWorkloadProvider, resourceHolidayProvider);
 		ResourceRepository resourceRepository = new ResourceRepository(resourceFactory);
