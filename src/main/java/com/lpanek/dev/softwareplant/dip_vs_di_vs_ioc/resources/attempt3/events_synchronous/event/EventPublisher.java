@@ -1,7 +1,8 @@
-package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.resources.attempt3.events_synchronous;
+package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.resources.attempt3.events_synchronous.event;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Streams;
 import java.util.Collection;
 
 public class EventPublisher {
@@ -32,10 +33,11 @@ public class EventPublisher {
 		}
 		setPublishing(true);
 		try {
-			Collection<EventSubscriber> subscribers = subscribers().get(event.getClass());
-			for (EventSubscriber subscriber : subscribers) {
-				subscriber.handleEvent(event);
-			}
+			Collection<EventSubscriber> subscribersOfGivenEvent = subscribers().get(event.getClass());
+			Collection<EventSubscriber> subscribersOfAllEvents = subscribers().get(Event.class);
+			Streams.concat(subscribersOfGivenEvent.stream(), subscribersOfAllEvents.stream()).forEach(
+					subscriber -> subscriber.handleEvent(event)
+			);
 		} finally {
 			setPublishing(false);
 		}

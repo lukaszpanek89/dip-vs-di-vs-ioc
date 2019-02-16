@@ -1,7 +1,7 @@
-package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.resources.attempt3.events_synchronous;
+package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.resources.attempt4.events_asynchronous;
 
 import com.google.common.base.Objects;
-import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.resources.attempt3.events_synchronous.event.Event;
+import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.resources.attempt4.events_asynchronous.event.Event;
 import java.time.ZonedDateTime;
 
 public final class ResourceCapacityChangedEvent extends Event {

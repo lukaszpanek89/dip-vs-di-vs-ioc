@@ -1,5 +1,6 @@
 package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.resources.attempt3.events_synchronous;
 
+import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.resources.attempt3.events_synchronous.event.EventPublisher;
 import java.time.DayOfWeek;
 import java.util.concurrent.TimeUnit;
 

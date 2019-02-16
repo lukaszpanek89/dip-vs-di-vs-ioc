@@ -1,5 +1,6 @@
 package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.resources.attempt3.events_synchronous;
 
+import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.resources.attempt3.events_synchronous.event.EventSubscriber;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
