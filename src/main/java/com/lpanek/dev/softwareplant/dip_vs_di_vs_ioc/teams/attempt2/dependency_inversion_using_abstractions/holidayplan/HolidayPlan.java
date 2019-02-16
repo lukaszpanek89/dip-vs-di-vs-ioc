@@ -10,6 +10,10 @@ public class HolidayPlan {
 		this.anemia = anemia;
 	}
 
+	public HolidayPlanId id() {
+		return anemia.id();
+	}
+
 	public boolean isHolidayOn(LocalDate date) {
 		return anemia.holidays().contains(date);
 	}
