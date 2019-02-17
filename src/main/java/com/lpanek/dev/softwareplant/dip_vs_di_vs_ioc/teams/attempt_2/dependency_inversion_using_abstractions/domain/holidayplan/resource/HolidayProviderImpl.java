@@ -1,0 +1,37 @@
+package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.holidayplan.resource;
+
+import com.google.common.collect.Maps;
+import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.holidayplan.HolidayPlan;
+import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.holidayplan.HolidayPlanId;
+import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.holidayplan.HolidayPlanRepository;
+import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.resource.HolidayProvider;
+import java.time.LocalDate;
+import java.util.Map;
+
+// TODO: Find better name
+public class HolidayProviderImpl implements HolidayProvider {
+
+	private final HolidayPlanRepository holidayPlanRepository;
+
+	private final Map<HolidayPlanId, HolidayPlan> holidayPlanCache;
+
+	public HolidayProviderImpl(HolidayPlanRepository holidayPlanRepository) {
+		this.holidayPlanRepository = holidayPlanRepository;
+		this.holidayPlanCache = Maps.newHashMap();
+	}
+
+	@Override
+	public boolean isHolidayOn(LocalDate date, HolidayPlanId holidayPlanId) {
+		HolidayPlan holidayPlan = getFromCache(holidayPlanId);
+		return holidayPlan.isHolidayOn(date);
+	}
+
+	private HolidayPlan getFromCache(HolidayPlanId holidayPlanId) {
+		HolidayPlan holidayPlan = holidayPlanCache.get(holidayPlanId);
+		if (holidayPlan == null) {
+			holidayPlan = holidayPlanRepository.get(holidayPlanId);
+			holidayPlanCache.put(holidayPlan.id(), holidayPlan);
+		}
+		return holidayPlan;
+	}
+}
