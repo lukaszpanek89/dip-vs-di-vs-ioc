@@ -6,5 +6,5 @@ import java.time.LocalDate;
 
 public interface WorkloadProvider {
 
-	Capacity getCapacityFor(LocalDate date, WorkloadPlanId workloadPlanId);
+	Capacity getWorkloadOn(LocalDate date, WorkloadPlanId workloadPlanId);
 }

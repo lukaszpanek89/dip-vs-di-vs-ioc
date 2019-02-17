@@ -25,6 +25,14 @@ public class ResourceRepository {
 		return resourceFactory.recreate(resourceAnemia);
 	}
 
+	public void save(Resource resource) {
+		repository.put(resource.id(), resource.toAnemia());
+	}
+
+	public void delete(ResourceId resourceId) {
+		repository.remove(resourceId);
+	}
+
 	private Map<ResourceId, ResourceAnemia> createPrepopulatedRepository() {
 		Map<ResourceId, ResourceAnemia> repository = new HashMap<>();
 

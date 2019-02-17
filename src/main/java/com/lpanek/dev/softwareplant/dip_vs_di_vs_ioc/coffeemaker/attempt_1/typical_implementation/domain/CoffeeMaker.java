@@ -26,6 +26,6 @@ public class CoffeeMaker {
 	}
 
 	private void wait5Seconds() {
-		// TODO: Implement this
+		// ...
 	}
 }

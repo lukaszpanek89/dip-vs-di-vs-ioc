@@ -8,11 +8,11 @@ import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_
 import java.time.LocalDate;
 import java.util.Map;
 
-// TODO: Find better name
 public class HolidayProviderImpl implements HolidayProvider {
 
 	private final HolidayPlanRepository holidayPlanRepository;
 
+	// If this Provider is reused between use cases, then below cache should be cleared before each use case
 	private final Map<HolidayPlanId, HolidayPlan> holidayPlanCache;
 
 	public HolidayProviderImpl(HolidayPlanRepository holidayPlanRepository) {

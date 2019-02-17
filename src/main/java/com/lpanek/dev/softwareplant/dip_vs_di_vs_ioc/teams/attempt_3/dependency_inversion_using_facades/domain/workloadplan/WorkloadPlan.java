@@ -16,7 +16,7 @@ public class WorkloadPlan {
 		return anemia.id();
 	}
 
-	public Capacity getCapacityFor(LocalDate date) {
+	public Capacity getWorkloadOn(LocalDate date) {
 		DayOfWeek dayOfWeek = date.getDayOfWeek();
 		return anemia.dailyCapacities().get(dayOfWeek);
 	}

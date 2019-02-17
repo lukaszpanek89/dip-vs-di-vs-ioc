@@ -2,6 +2,9 @@ package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.coffeemaker.attempt_1.typi
 
 public class Coffee {
 
-	// TODO: Implement this
+	@Override
+	public String toString() {
+		return getClass().getSimpleName();
+	}
 
 }

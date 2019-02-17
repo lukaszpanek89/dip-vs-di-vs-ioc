@@ -17,11 +17,12 @@ public class EventPublisher {
 
 	@SuppressWarnings("unchecked")
 	public <EVENT_TYPE extends Event> void publish(EVENT_TYPE event) {
-		printServiceMessage(this, "About to notify subscribers about event %s", event);
-
 		Collection<EventSubscriber> subscribersOfGivenEvent = subscribers.get(event.getClass());
 		Collection<EventSubscriber> subscribersOfAllEvents = subscribers.get(Event.class);
-		for (EventSubscriber subscriber : sum(subscribersOfGivenEvent, subscribersOfAllEvents)) {
+		Collection<EventSubscriber> subscribersSum = sum(subscribersOfGivenEvent, subscribersOfAllEvents);
+		printServiceMessage(this, "About to notify %d subscriber(s) about event %s", subscribersSum.size(), event);
+
+		for (EventSubscriber subscriber : subscribersSum) {
 			try {
 				subscriber.handleEvent(event);
 			} catch (RuntimeException e) {
@@ -29,7 +30,7 @@ public class EventPublisher {
 			}
 		}
 
-		printServiceMessage(this, "Subscribers notified about event %s", event);
+		printServiceMessage(this, "%d subscriber(s) notified about event %s", subscribersSum.size(), event);
 	}
 
 	private Collection<EventSubscriber> sum(Collection<EventSubscriber> subscribers1, Collection<EventSubscriber> subscribers2) {

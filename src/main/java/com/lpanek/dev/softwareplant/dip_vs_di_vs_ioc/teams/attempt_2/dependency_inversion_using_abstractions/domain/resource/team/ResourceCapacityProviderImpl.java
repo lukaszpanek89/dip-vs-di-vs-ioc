@@ -7,7 +7,6 @@ import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.resource.ResourceRepository;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.team.ResourceCapacityProvider;
 
-// TODO: Find better name
 public class ResourceCapacityProviderImpl implements ResourceCapacityProvider {
 
 	private final ResourceRepository resourceRepository;

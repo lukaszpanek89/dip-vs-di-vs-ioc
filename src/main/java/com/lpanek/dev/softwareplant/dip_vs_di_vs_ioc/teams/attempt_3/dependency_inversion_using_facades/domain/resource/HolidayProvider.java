@@ -11,6 +11,7 @@ public class HolidayProvider {
 
 	private final HolidayPlanRepository holidayPlanRepository;
 
+	// If this Provider is reused between use cases, then below cache should be cleared before each use case
 	private final Map<HolidayPlanId, HolidayPlan> holidayPlanCache;
 
 	public HolidayProvider(HolidayPlanRepository holidayPlanRepository) {

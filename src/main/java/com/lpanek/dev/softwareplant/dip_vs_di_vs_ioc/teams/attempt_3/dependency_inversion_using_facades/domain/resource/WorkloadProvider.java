@@ -12,6 +12,7 @@ public class WorkloadProvider {
 
 	private final WorkloadPlanRepository workloadPlanRepository;
 
+	// If this Provider is reused between use cases, then below cache should be cleared before each use case
 	private final Map<WorkloadPlanId, WorkloadPlan> workloadPlanCache;
 
 	public WorkloadProvider(WorkloadPlanRepository workloadPlanRepository) {
@@ -19,9 +20,9 @@ public class WorkloadProvider {
 		this.workloadPlanCache = Maps.newHashMap();
 	}
 
-	public Capacity getCapacityFor(LocalDate date, WorkloadPlanId workloadPlanId) {
+	public Capacity getWorkloadOn(LocalDate date, WorkloadPlanId workloadPlanId) {
 		WorkloadPlan workloadPlan = getFromCache(workloadPlanId);
-		return workloadPlan.getCapacityFor(date);
+		return workloadPlan.getWorkloadOn(date);
 	}
 
 	private WorkloadPlan getFromCache(WorkloadPlanId workloadPlanId) {

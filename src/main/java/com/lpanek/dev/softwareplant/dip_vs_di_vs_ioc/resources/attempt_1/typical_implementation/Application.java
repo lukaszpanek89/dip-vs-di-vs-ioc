@@ -26,7 +26,7 @@ public class Application {
 		Capacity newCapacity = new Capacity(8, HOURS);
 
 		Resource resource = resourceRepository.get(resourceId);
-		resource.changeCapacityOnDate(date, newCapacity);
+		resource.changeCapacityOn(date, newCapacity);
 		resourceRepository.save(resource);
 	}
 

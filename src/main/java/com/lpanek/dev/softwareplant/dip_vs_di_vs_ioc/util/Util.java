@@ -8,8 +8,8 @@ public class Util {
 		return LocalDate.parse(date);
 	}
 
-	public static void printEntityMessage(Object caller, String message, Object... messageArguments) {
-		String toPrint = String.format("%s '%s': %s", caller.getClass().getSimpleName(), caller, String.format(message, messageArguments));
+	public static void printEntityMessage(Object entity, String message, Object... messageArguments) {
+		String toPrint = String.format("%s '%s': %s", entity.getClass().getSimpleName(), entity, String.format(message, messageArguments));
 		System.out.println(toPrint);
 	}
 

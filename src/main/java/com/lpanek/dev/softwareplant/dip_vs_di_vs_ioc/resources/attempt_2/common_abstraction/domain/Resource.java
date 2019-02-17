@@ -22,7 +22,7 @@ public class Resource {
 		return anemia.id();
 	}
 
-	public Capacity capacityOnDate(LocalDate date) {
+	public Capacity getCapacityOn(LocalDate date) {
 		Capacity capacity = anemia.dailyCapacities().get(date);
 		if (capacity == null) {
 			return Capacity.ZERO;
@@ -30,8 +30,8 @@ public class Resource {
 		return capacity;
 	}
 
-	public void changeCapacityOnDate(LocalDate date, Capacity newCapacity) {
-		Capacity oldCapacity = capacityOnDate(date);
+	public void changeCapacityOn(LocalDate date, Capacity newCapacity) {
+		Capacity oldCapacity = getCapacityOn(date);
 		Map<LocalDate, Capacity> newDailyCapacities = Maps.newHashMap(anemia.dailyCapacities());
 		newDailyCapacities.put(date, newCapacity);
 		anemia = new ResourceAnemia(anemia.id(), newDailyCapacities);
@@ -40,7 +40,7 @@ public class Resource {
 		for (ResourceCapacityObserver observer : resourceCapacityObservers) {
 			try {
 				printEntityMessage(this, "About to notify observer %s about the change", observer.getClass().getSimpleName());
-				observer.onResourceCapacityChange(anemia.id(), oldCapacity, newCapacity);
+				observer.onResourceCapacityChange(anemia.id(), date, oldCapacity, newCapacity);
 				printEntityMessage(this, "Notified observer %s about the change\n", observer.getClass().getSimpleName());
 			} catch (RuntimeException e) {
 				// Exception handling goes here...

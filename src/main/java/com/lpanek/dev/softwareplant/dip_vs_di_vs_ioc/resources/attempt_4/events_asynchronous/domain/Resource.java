@@ -23,7 +23,7 @@ public class Resource {
 		return anemia.id();
 	}
 
-	public Capacity capacityOnDate(LocalDate date) {
+	public Capacity getCapacityOn(LocalDate date) {
 		Capacity capacity = anemia.dailyCapacities().get(date);
 		if (capacity == null) {
 			return Capacity.ZERO;
@@ -31,8 +31,8 @@ public class Resource {
 		return capacity;
 	}
 
-	public void changeCapacityOnDate(LocalDate date, Capacity newCapacity) {
-		Capacity oldCapacity = capacityOnDate(date);
+	public void changeCapacityOn(LocalDate date, Capacity newCapacity) {
+		Capacity oldCapacity = getCapacityOn(date);
 		Map<LocalDate, Capacity> newDailyCapacities = Maps.newHashMap(anemia.dailyCapacities());
 		newDailyCapacities.put(date, newCapacity);
 		anemia = new ResourceAnemia(anemia.id(), newDailyCapacities);

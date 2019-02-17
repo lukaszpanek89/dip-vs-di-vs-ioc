@@ -8,14 +8,11 @@ public class ResourceCapacityChangedEventProcessor {
 
 	private final EventStore eventStore;
 
-	private final TeamService teamService;
+	private final List<ResourceCapacityObserver> observers;
 
-	private final TaskService taskService;
-
-	public ResourceCapacityChangedEventProcessor(EventStore eventStore, TeamService teamService, TaskService taskService) {
+	public ResourceCapacityChangedEventProcessor(EventStore eventStore, List<ResourceCapacityObserver> observers) {
 		this.eventStore = eventStore;
-		this.teamService = teamService;
-		this.taskService = taskService;
+		this.observers = observers;
 	}
 
 	public void processEvents() {
@@ -25,23 +22,24 @@ public class ResourceCapacityChangedEventProcessor {
 			return;
 		}
 
-		printServiceMessage(this, "About to process %d event(s)", events.size());
+		printServiceMessage(this, "About to notify %d observer(s) about %d event(s)", observers.size(), events.size());
 		for (int i = 0; i < events.size(); ++i) {
 			ResourceCapacityChangedEvent event = events.get(i);
 			try {
-				teamService.handleEvent(event);
-				taskService.handleEvent(event);
+				for (ResourceCapacityObserver observer : observers) {
+					observer.onCapacityChange(event);
+				}
 			} catch (RuntimeException e) {
 				// Exception handling goes here...
 				if (i > 0) {
 					ResourceCapacityChangedEvent lastSuccessfullyProcessedEvent = events.get(i - 1);
 					eventStore.markEventsUntilGivenAsProcessed(lastSuccessfullyProcessedEvent);
-					printServiceMessage(this, "Processed only %d event(s) out of %d because of an error\n", i - 1, events.size());
+					printServiceMessage(this, "(s) processed only %d event(s) out of %d because of an error\n", observers.size(), i - 1, events.size());
 				}
 				return;
 			}
 		}
 		eventStore.markEventsUntilGivenAsProcessed(events.get(events.size() - 1));
-		printServiceMessage(this, "Processed all %d event(s)\n", events.size());
+		printServiceMessage(this, "%d observer(s) processed %d event(s)\n", observers.size(), events.size());
 	}
 }
