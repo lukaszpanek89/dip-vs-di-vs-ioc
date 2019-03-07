@@ -17,4 +17,9 @@ public class Util {
 		String toPrint = String.format("%s: %s", service.getClass().getSimpleName(), String.format(message, messageArguments));
 		System.out.println(toPrint);
 	}
+
+	public static void printApplicationMessage(String message, Object... messageArguments) {
+		String toPrint = String.format("APPLICATION: " + message + "\n", messageArguments);
+		System.out.println(toPrint);
+	}
 }
