@@ -33,9 +33,7 @@ public class Resource {
 
 	public void changeCapacityOn(LocalDate date, Capacity newCapacity) {
 		Capacity oldCapacity = getCapacityOn(date);
-		Map<LocalDate, Capacity> newDailyCapacities = Maps.newHashMap(anemia.dailyCapacities());
-		newDailyCapacities.put(date, newCapacity);
-		anemia = new ResourceAnemia(anemia.id(), newDailyCapacities);
+		doChangeCapacity(date, newCapacity);
 		printEntityMessage(this, "Capacity on date %s changed from %s to %s\n", date, oldCapacity, newCapacity);
 
 		ResourceCapacityChangedEvent event = new ResourceCapacityChangedEvent(ZonedDateTime.now(), anemia.id(), date, oldCapacity, newCapacity);
@@ -68,5 +66,11 @@ public class Resource {
 	@Override
 	public String toString() {
 		return id().toString();
+	}
+
+	private void doChangeCapacity(LocalDate date, Capacity newCapacity) {
+		Map<LocalDate, Capacity> newDailyCapacities = Maps.newHashMap(anemia.dailyCapacities());
+		newDailyCapacities.put(date, newCapacity);
+		anemia = new ResourceAnemia(anemia.id(), newDailyCapacities);
 	}
 }
