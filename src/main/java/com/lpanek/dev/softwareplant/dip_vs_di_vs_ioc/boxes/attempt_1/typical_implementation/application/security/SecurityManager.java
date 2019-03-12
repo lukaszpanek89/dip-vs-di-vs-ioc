@@ -6,6 +6,5 @@ public class SecurityManager {
 
 	public void validateHasPrivilege() {
 		printServiceMessage(this, "Validates privilege");
-		// ...
 	}
 }

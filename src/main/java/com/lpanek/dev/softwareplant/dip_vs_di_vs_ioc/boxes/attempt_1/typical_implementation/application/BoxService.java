@@ -23,7 +23,6 @@ public class BoxService {
 
 	public Set<Box> getAllBoxes() {
 		securityManager.validateHasPrivilege();
-
 		Set<Box> boxesSet = Sets.newHashSet(boxesMap.values());
 		return Collections.unmodifiableSet(boxesSet);
 	}

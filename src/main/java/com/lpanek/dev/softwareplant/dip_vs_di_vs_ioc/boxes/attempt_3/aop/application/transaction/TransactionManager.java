@@ -43,7 +43,7 @@ public class TransactionManager {
 	}
 
 	private void continuePreviouslyBegunTransaction() {
-		printServiceMessage(this, "Continuous previously begun transaction");
+		printServiceMessage(this, "Continues previously begun transaction");
 	}
 
 	private void commitTransaction() {
