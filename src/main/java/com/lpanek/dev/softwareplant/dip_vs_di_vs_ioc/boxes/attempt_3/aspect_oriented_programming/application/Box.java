@@ -1,4 +1,4 @@
-package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_3.aop.application;
+package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_3.aspect_oriented_programming.application;
 
 import com.google.common.base.Objects;
 import java.util.UUID;

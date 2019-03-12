@@ -1,4 +1,4 @@
-package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_3.aop.application.transaction;
+package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_3.aspect_oriented_programming.application.transaction;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -18,7 +18,7 @@ public class TransactionAspect {
 		this.transactionManager = transactionManager;
 	}
 
-	@Around("@annotation(com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_3.aop.application.transaction.Transactional)")
+	@Around("@annotation(com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_3.aspect_oriented_programming.application.transaction.Transactional)")
 	public Object execute(ProceedingJoinPoint joinPoint) throws Throwable {
 		printServiceMessage(this, "Before " + signatureOf(joinPoint));
 		transactionManager.beforeInvocation();

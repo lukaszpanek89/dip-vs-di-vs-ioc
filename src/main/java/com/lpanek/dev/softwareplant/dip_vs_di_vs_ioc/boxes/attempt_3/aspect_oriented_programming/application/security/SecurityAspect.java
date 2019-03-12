@@ -1,4 +1,4 @@
-package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_3.aop.application.security;
+package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_3.aspect_oriented_programming.application.security;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -18,7 +18,7 @@ public class SecurityAspect {
 		this.securityManager = securityManager;
 	}
 
-	@Around("@annotation(com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_3.aop.application.security.Secured)")
+	@Around("@annotation(com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_3.aspect_oriented_programming.application.security.Secured)")
 	public Object execute(ProceedingJoinPoint joinPoint) throws Throwable {
 		printServiceMessage(this, "Before " + signatureOf(joinPoint));
 		securityManager.validateHasPrivilege();
