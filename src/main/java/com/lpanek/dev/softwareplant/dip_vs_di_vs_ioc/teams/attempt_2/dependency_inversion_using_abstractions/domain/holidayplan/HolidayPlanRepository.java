@@ -25,7 +25,7 @@ public class HolidayPlanRepository {
 		Set<LocalDate> holidays = new HashSet<>();
 		holidays.add(date("2019-05-01"));
 		holidays.add(date("2019-05-03"));
-		HolidayPlanAnemia holidayPlanAnemia = new HolidayPlanAnemia(POLISH_HOLIDAY_PLAN_ID, holidays);
+		HolidayPlanAnemia holidayPlanAnemia = new HolidayPlanAnemia(new HolidayPlanId(POLISH_HOLIDAY_PLAN_ID), holidays);
 		repository.put(holidayPlanAnemia.id(), holidayPlanAnemia);
 
 		return repository;

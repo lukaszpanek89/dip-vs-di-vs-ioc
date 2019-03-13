@@ -36,10 +36,12 @@ public class ResourceRepository {
 	private Map<ResourceId, ResourceAnemia> createPrepopulatedRepository() {
 		Map<ResourceId, ResourceAnemia> repository = new HashMap<>();
 
-		ResourceAnemia resource1Anemia = new ResourceAnemia(JOHN_ID, FULL_TIME_WORKLOAD_PLAN_ID, POLISH_HOLIDAY_PLAN_ID);
+		ResourceAnemia resource1Anemia
+				= new ResourceAnemia(new ResourceId(JOHN_ID), new WorkloadPlanId(FULL_TIME_WORKLOAD_PLAN_ID), new HolidayPlanId(POLISH_HOLIDAY_PLAN_ID));
 		repository.put(resource1Anemia.id(), resource1Anemia);
 
-		ResourceAnemia resource2Anemia = new ResourceAnemia(KATHY_ID, FULL_TIME_WORKLOAD_PLAN_ID, POLISH_HOLIDAY_PLAN_ID);
+		ResourceAnemia resource2Anemia
+				= new ResourceAnemia(new ResourceId(KATHY_ID), new WorkloadPlanId(FULL_TIME_WORKLOAD_PLAN_ID), new HolidayPlanId(POLISH_HOLIDAY_PLAN_ID));
 		repository.put(resource2Anemia.id(), resource2Anemia);
 
 		return repository;

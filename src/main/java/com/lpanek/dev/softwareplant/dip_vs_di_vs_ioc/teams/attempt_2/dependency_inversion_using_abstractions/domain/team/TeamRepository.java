@@ -1,7 +1,6 @@
 package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.team;
 
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.common.PercentageAvailability;
-import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.resource.ResourceId;
 import java.util.HashMap;
 import java.util.Map;
 import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.Constants.JOHN_ID;
@@ -30,9 +29,9 @@ public class TeamRepository {
 		Map<TeamId, TeamAnemia> repository = new HashMap<>();
 
 		Map<ResourceId, PercentageAvailability> teamMembers = new HashMap<>();
-		teamMembers.put(JOHN_ID, new PercentageAvailability(50));
-		teamMembers.put(KATHY_ID, new PercentageAvailability(100));
-		TeamAnemia teamAnemia = new TeamAnemia(TEAM_OAKS_ID, teamMembers);
+		teamMembers.put(new ResourceId(JOHN_ID), new PercentageAvailability(50));
+		teamMembers.put(new ResourceId(KATHY_ID), new PercentageAvailability(100));
+		TeamAnemia teamAnemia = new TeamAnemia(new TeamId(TEAM_OAKS_ID), teamMembers);
 		repository.put(teamAnemia.id(), teamAnemia);
 
 		return repository;

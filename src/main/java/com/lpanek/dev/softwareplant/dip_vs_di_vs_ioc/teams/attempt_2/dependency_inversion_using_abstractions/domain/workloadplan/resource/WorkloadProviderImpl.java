@@ -2,9 +2,9 @@ package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency
 
 import com.google.common.collect.Maps;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.common.Capacity;
+import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.resource.WorkloadPlanId;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.resource.WorkloadProvider;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.workloadplan.WorkloadPlan;
-import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.workloadplan.WorkloadPlanId;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.workloadplan.WorkloadPlanRepository;
 import java.time.LocalDate;
 import java.util.Map;
@@ -30,9 +30,15 @@ public class WorkloadProviderImpl implements WorkloadProvider {
 	private WorkloadPlan getFromCache(WorkloadPlanId workloadPlanId) {
 		WorkloadPlan workloadPlan = workloadPlanCache.get(workloadPlanId);
 		if (workloadPlan == null) {
-			workloadPlan = workloadPlanRepository.get(workloadPlanId);
-			workloadPlanCache.put(workloadPlan.id(), workloadPlan);
+			workloadPlan = workloadPlanRepository.get(toDomain(workloadPlanId));
+			workloadPlanCache.put(workloadPlanId, workloadPlan);
 		}
 		return workloadPlan;
+	}
+
+	private com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.workloadplan.WorkloadPlanId toDomain(
+			WorkloadPlanId workloadPlanId) {
+		return new com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.workloadplan.WorkloadPlanId(
+				workloadPlanId.internal());
 	}
 }

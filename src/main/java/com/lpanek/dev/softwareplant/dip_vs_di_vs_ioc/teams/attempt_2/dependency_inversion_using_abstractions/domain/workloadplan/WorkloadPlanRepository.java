@@ -38,7 +38,7 @@ public class WorkloadPlanRepository {
 		dailyCapacities.put(FRIDAY, eightHours);
 		dailyCapacities.put(SATURDAY, Capacity.ZERO);
 		dailyCapacities.put(SUNDAY, Capacity.ZERO);
-		WorkloadPlanAnemia workloadPlanAnemia = new WorkloadPlanAnemia(FULL_TIME_WORKLOAD_PLAN_ID, dailyCapacities);
+		WorkloadPlanAnemia workloadPlanAnemia = new WorkloadPlanAnemia(new WorkloadPlanId(FULL_TIME_WORKLOAD_PLAN_ID), dailyCapacities);
 		repository.put(workloadPlanAnemia.id(), workloadPlanAnemia);
 
 		return repository;

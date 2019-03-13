@@ -36,7 +36,7 @@ public class Application {
 		TeamRepository teamRepository = new TeamRepository(teamFactory);
 
 		// ===== 2. USE CASE =====
-		TeamId teamId = TEAM_OAKS_ID;
+		TeamId teamId = new TeamId(TEAM_OAKS_ID);
 		Team team = teamRepository.get(teamId);
 		DatePeriod period = new DatePeriod(date("2019-05-01"), date("2019-05-10"));
 		Capacity capacity = team.getCapacityFor(period);

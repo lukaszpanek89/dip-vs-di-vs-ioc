@@ -2,8 +2,8 @@ package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency
 
 import com.google.common.collect.Maps;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.holidayplan.HolidayPlan;
-import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.holidayplan.HolidayPlanId;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.holidayplan.HolidayPlanRepository;
+import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.resource.HolidayPlanId;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.resource.HolidayProvider;
 import java.time.LocalDate;
 import java.util.Map;
@@ -29,9 +29,15 @@ public class HolidayProviderImpl implements HolidayProvider {
 	private HolidayPlan getFromCache(HolidayPlanId holidayPlanId) {
 		HolidayPlan holidayPlan = holidayPlanCache.get(holidayPlanId);
 		if (holidayPlan == null) {
-			holidayPlan = holidayPlanRepository.get(holidayPlanId);
-			holidayPlanCache.put(holidayPlan.id(), holidayPlan);
+			holidayPlan = holidayPlanRepository.get(toDomain(holidayPlanId));
+			holidayPlanCache.put(holidayPlanId, holidayPlan);
 		}
 		return holidayPlan;
+	}
+
+	private com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.holidayplan.HolidayPlanId toDomain(
+			HolidayPlanId holidayPlanId) {
+		return new com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.holidayplan.HolidayPlanId(
+				holidayPlanId.internal());
 	}
 }
