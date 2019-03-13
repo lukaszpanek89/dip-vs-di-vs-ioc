@@ -5,11 +5,11 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.Constants.POLISH_HOLIDAY_PLAN_ID;
+import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.RepositoriesInitialData.POLISH_HOLIDAY_PLAN_ID;
 
 public class HolidayPlanRepository {
 
-	private final Map<HolidayPlanId, HolidayPlanAnemia> repository = createPrepopulatedRepository();
+	private final Map<HolidayPlanId, HolidayPlanAnemia> repository = createRepositoryWithInitialData();
 
 	public HolidayPlan get(HolidayPlanId holidayPlanId) {
 		HolidayPlanAnemia holidayPlanAnemia = repository.get(holidayPlanId);
@@ -19,7 +19,7 @@ public class HolidayPlanRepository {
 		return new HolidayPlan(holidayPlanAnemia);
 	}
 
-	private Map<HolidayPlanId, HolidayPlanAnemia> createPrepopulatedRepository() {
+	private Map<HolidayPlanId, HolidayPlanAnemia> createRepositoryWithInitialData() {
 		Map<HolidayPlanId, HolidayPlanAnemia> repository = new HashMap<>();
 
 		Set<LocalDate> holidays = new HashSet<>();

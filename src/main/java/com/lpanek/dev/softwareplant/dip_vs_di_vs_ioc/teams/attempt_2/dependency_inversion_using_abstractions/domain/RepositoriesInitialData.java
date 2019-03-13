@@ -1,6 +1,6 @@
 package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain;
 
-public class Constants {
+public class RepositoriesInitialData {
 
 	public static String FULL_TIME_WORKLOAD_PLAN_ID = "Full-time workload plan";
 

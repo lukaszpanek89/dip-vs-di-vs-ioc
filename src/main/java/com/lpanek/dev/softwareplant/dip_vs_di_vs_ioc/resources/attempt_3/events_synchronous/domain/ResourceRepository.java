@@ -9,7 +9,7 @@ import static java.util.concurrent.TimeUnit.HOURS;
 
 public class ResourceRepository {
 
-	private final Map<ResourceId, ResourceAnemia> repository = createPrepopulatedRepository();
+	private final Map<ResourceId, ResourceAnemia> repository = createRepositoryWithInitialData();
 
 	private final ResourceFactory resourceFactory;
 
@@ -34,7 +34,7 @@ public class ResourceRepository {
 		repository.put(resourceId, resourceAnemia);
 	}
 
-	private Map<ResourceId, ResourceAnemia> createPrepopulatedRepository() {
+	private Map<ResourceId, ResourceAnemia> createRepositoryWithInitialData() {
 		Map<ResourceId, ResourceAnemia> repository = new HashMap<>();
 
 		ResourceId resourceId = new ResourceId("john.doe");

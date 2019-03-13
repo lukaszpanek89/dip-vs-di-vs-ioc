@@ -4,7 +4,7 @@ import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_
 import java.time.DayOfWeek;
 import java.util.HashMap;
 import java.util.Map;
-import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.Constants.FULL_TIME_WORKLOAD_PLAN_ID;
+import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.RepositoriesInitialData.FULL_TIME_WORKLOAD_PLAN_ID;
 import static java.time.DayOfWeek.FRIDAY;
 import static java.time.DayOfWeek.MONDAY;
 import static java.time.DayOfWeek.SATURDAY;
@@ -16,7 +16,7 @@ import static java.util.concurrent.TimeUnit.HOURS;
 
 public class WorkloadPlanRepository {
 
-	private final Map<WorkloadPlanId, WorkloadPlanAnemia> repository = createPrepopulatedRepository();
+	private final Map<WorkloadPlanId, WorkloadPlanAnemia> repository = createRepositoryWithInitialData();
 
 	public WorkloadPlan get(WorkloadPlanId workloadPlanId) {
 		WorkloadPlanAnemia workloadPlanAnemia = repository.get(workloadPlanId);
@@ -26,7 +26,7 @@ public class WorkloadPlanRepository {
 		return new WorkloadPlan(workloadPlanAnemia);
 	}
 
-	private Map<WorkloadPlanId, WorkloadPlanAnemia> createPrepopulatedRepository() {
+	private Map<WorkloadPlanId, WorkloadPlanAnemia> createRepositoryWithInitialData() {
 		Map<WorkloadPlanId, WorkloadPlanAnemia> repository = new HashMap<>();
 
 		Map<DayOfWeek, Capacity> dailyCapacities = new HashMap<>();

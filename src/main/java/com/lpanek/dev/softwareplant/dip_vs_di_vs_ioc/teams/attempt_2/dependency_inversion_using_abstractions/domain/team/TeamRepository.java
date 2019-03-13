@@ -3,13 +3,13 @@ package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.common.PercentageAvailability;
 import java.util.HashMap;
 import java.util.Map;
-import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.Constants.JOHN_ID;
-import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.Constants.KATHY_ID;
-import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.Constants.TEAM_OAKS_ID;
+import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.RepositoriesInitialData.JOHN_ID;
+import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.RepositoriesInitialData.KATHY_ID;
+import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.RepositoriesInitialData.TEAM_OAKS_ID;
 
 public class TeamRepository {
 
-	private final Map<TeamId, TeamAnemia> repository = createPrepopulatedRepository();
+	private final Map<TeamId, TeamAnemia> repository = createRepositoryWithInitialData();
 
 	private final TeamFactory teamFactory;
 
@@ -25,7 +25,7 @@ public class TeamRepository {
 		return teamFactory.recreate(teamAnemia);
 	}
 
-	private Map<TeamId, TeamAnemia> createPrepopulatedRepository() {
+	private Map<TeamId, TeamAnemia> createRepositoryWithInitialData() {
 		Map<TeamId, TeamAnemia> repository = new HashMap<>();
 
 		Map<ResourceId, PercentageAvailability> teamMembers = new HashMap<>();

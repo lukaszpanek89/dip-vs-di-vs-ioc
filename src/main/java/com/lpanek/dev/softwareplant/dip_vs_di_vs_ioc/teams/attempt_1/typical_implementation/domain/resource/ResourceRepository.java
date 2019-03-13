@@ -2,14 +2,14 @@ package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_1.typical_im
 
 import java.util.HashMap;
 import java.util.Map;
-import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_1.typical_implementation.domain.Constants.FULL_TIME_WORKLOAD_PLAN_ID;
-import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_1.typical_implementation.domain.Constants.JOHN_ID;
-import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_1.typical_implementation.domain.Constants.KATHY_ID;
-import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_1.typical_implementation.domain.Constants.POLISH_HOLIDAY_PLAN_ID;
+import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_1.typical_implementation.domain.RepositoriesInitialData.FULL_TIME_WORKLOAD_PLAN_ID;
+import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_1.typical_implementation.domain.RepositoriesInitialData.JOHN_ID;
+import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_1.typical_implementation.domain.RepositoriesInitialData.KATHY_ID;
+import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_1.typical_implementation.domain.RepositoriesInitialData.POLISH_HOLIDAY_PLAN_ID;
 
 public class ResourceRepository {
 
-	private final Map<ResourceId, ResourceAnemia> repository = createPrepopulatedRepository();
+	private final Map<ResourceId, ResourceAnemia> repository = createRepositoryWithInitialData();
 
 	private final ResourceFactory resourceFactory;
 
@@ -33,7 +33,7 @@ public class ResourceRepository {
 		repository.remove(resourceId);
 	}
 
-	private Map<ResourceId, ResourceAnemia> createPrepopulatedRepository() {
+	private Map<ResourceId, ResourceAnemia> createRepositoryWithInitialData() {
 		Map<ResourceId, ResourceAnemia> repository = new HashMap<>();
 
 		ResourceAnemia resource1Anemia = new ResourceAnemia(JOHN_ID, FULL_TIME_WORKLOAD_PLAN_ID, POLISH_HOLIDAY_PLAN_ID);
