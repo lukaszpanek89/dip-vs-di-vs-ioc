@@ -29,7 +29,8 @@ public class Resource {
 			if (holidayProvider.isHolidayOn(currentDate, holidayPlanId())) {
 				dailyCapacity = Capacity.ZERO;
 			} else {
-				dailyCapacity = workloadProvider.getWorkloadOn(currentDate, workloadPlanId());
+				Workload workload = workloadProvider.getWorkloadOn(currentDate, workloadPlanId());
+				dailyCapacity = workload.toCapacity();
 			}
 			capacityForPeriod = capacityForPeriod.sum(dailyCapacity);
 		}

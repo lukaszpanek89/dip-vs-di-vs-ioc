@@ -1,7 +1,7 @@
 package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.workloadplan.resource;
 
 import com.google.common.collect.Maps;
-import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.common.Capacity;
+import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.resource.Workload;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.resource.WorkloadPlanId;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.resource.WorkloadProvider;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.workloadplan.WorkloadPlan;
@@ -22,23 +22,28 @@ public class WorkloadProviderImpl implements WorkloadProvider {
 	}
 
 	@Override
-	public Capacity getWorkloadOn(LocalDate date, WorkloadPlanId workloadPlanId) {
+	public Workload getWorkloadOn(LocalDate date, WorkloadPlanId workloadPlanId) {
 		WorkloadPlan workloadPlan = getFromCache(workloadPlanId);
-		return workloadPlan.getWorkloadOn(date);
+		return convert(workloadPlan.getWorkloadOn(date));
 	}
 
 	private WorkloadPlan getFromCache(WorkloadPlanId workloadPlanId) {
 		WorkloadPlan workloadPlan = workloadPlanCache.get(workloadPlanId);
 		if (workloadPlan == null) {
-			workloadPlan = workloadPlanRepository.get(toDomain(workloadPlanId));
+			workloadPlan = workloadPlanRepository.get(convert(workloadPlanId));
 			workloadPlanCache.put(workloadPlanId, workloadPlan);
 		}
 		return workloadPlan;
 	}
 
-	private com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.workloadplan.WorkloadPlanId toDomain(
+	private com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.workloadplan.WorkloadPlanId convert(
 			WorkloadPlanId workloadPlanId) {
 		return new com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.workloadplan.WorkloadPlanId(
 				workloadPlanId.internal());
+	}
+
+	private Workload convert(
+			com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.workloadplan.Workload workload) {
+		return new Workload(workload.startMinute(), workload.endMinute());
 	}
 }

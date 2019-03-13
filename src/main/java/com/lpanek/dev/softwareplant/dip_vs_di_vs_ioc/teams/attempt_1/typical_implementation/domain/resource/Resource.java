@@ -5,6 +5,7 @@ import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_1.typical_imp
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_1.typical_implementation.domain.holidayplan.HolidayPlan;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_1.typical_implementation.domain.holidayplan.HolidayPlanId;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_1.typical_implementation.domain.holidayplan.HolidayPlanRepository;
+import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_1.typical_implementation.domain.workloadplan.Workload;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_1.typical_implementation.domain.workloadplan.WorkloadPlan;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_1.typical_implementation.domain.workloadplan.WorkloadPlanId;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_1.typical_implementation.domain.workloadplan.WorkloadPlanRepository;
@@ -38,7 +39,8 @@ public class Resource {
 			if (holidayPlan.isHolidayOn(currentDate)) {
 				dailyCapacity = Capacity.ZERO;
 			} else {
-				dailyCapacity = workloadPlan.getWorkloadOn(currentDate);
+				Workload workload = workloadPlan.getWorkloadOn(currentDate);
+				dailyCapacity = workload.toCapacity();
 			}
 			capacityForPeriod = capacityForPeriod.sum(dailyCapacity);
 		}

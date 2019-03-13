@@ -3,6 +3,7 @@ package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_3.dependency
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_3.dependency_inversion_using_facades.domain.common.Capacity;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_3.dependency_inversion_using_facades.domain.common.DatePeriod;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_3.dependency_inversion_using_facades.domain.holidayplan.HolidayPlanId;
+import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_3.dependency_inversion_using_facades.domain.workloadplan.Workload;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_3.dependency_inversion_using_facades.domain.workloadplan.WorkloadPlanId;
 import java.time.LocalDate;
 
@@ -31,7 +32,8 @@ public class Resource {
 			if (holidayProvider.isHolidayOn(currentDate, holidayPlanId())) {
 				dailyCapacity = Capacity.ZERO;
 			} else {
-				dailyCapacity = workloadProvider.getWorkloadOn(currentDate, workloadPlanId());
+				Workload workload = workloadProvider.getWorkloadOn(currentDate, workloadPlanId());
+				dailyCapacity = workload.toCapacity();
 			}
 			capacityForPeriod = capacityForPeriod.sum(dailyCapacity);
 		}

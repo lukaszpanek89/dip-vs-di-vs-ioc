@@ -1,6 +1,5 @@
 package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_3.dependency_inversion_using_facades.domain.workloadplan;
 
-import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_3.dependency_inversion_using_facades.domain.common.Capacity;
 import java.time.DayOfWeek;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +11,7 @@ import static java.time.DayOfWeek.SUNDAY;
 import static java.time.DayOfWeek.THURSDAY;
 import static java.time.DayOfWeek.TUESDAY;
 import static java.time.DayOfWeek.WEDNESDAY;
-import static java.util.concurrent.TimeUnit.HOURS;
+import static org.joda.time.DateTimeConstants.MINUTES_PER_HOUR;
 
 public class WorkloadPlanRepository {
 
@@ -29,16 +28,16 @@ public class WorkloadPlanRepository {
 	private Map<WorkloadPlanId, WorkloadPlanAnemia> createRepositoryWithInitialData() {
 		Map<WorkloadPlanId, WorkloadPlanAnemia> repository = new HashMap<>();
 
-		Map<DayOfWeek, Capacity> dailyCapacities = new HashMap<>();
-		Capacity eightHours = new Capacity(8, HOURS);
-		dailyCapacities.put(MONDAY, eightHours);
-		dailyCapacities.put(TUESDAY, eightHours);
-		dailyCapacities.put(WEDNESDAY, eightHours);
-		dailyCapacities.put(THURSDAY, eightHours);
-		dailyCapacities.put(FRIDAY, eightHours);
-		dailyCapacities.put(SATURDAY, Capacity.ZERO);
-		dailyCapacities.put(SUNDAY, Capacity.ZERO);
-		WorkloadPlanAnemia workloadPlanAnemia = new WorkloadPlanAnemia(FULL_TIME_WORKLOAD_PLAN_ID, dailyCapacities);
+		Map<DayOfWeek, Workload> dailyWorkloads = new HashMap<>();
+		Workload from8amTo4pm = new Workload(8 * MINUTES_PER_HOUR, 16 * MINUTES_PER_HOUR);
+		dailyWorkloads.put(MONDAY, from8amTo4pm);
+		dailyWorkloads.put(TUESDAY, from8amTo4pm);
+		dailyWorkloads.put(WEDNESDAY, from8amTo4pm);
+		dailyWorkloads.put(THURSDAY, from8amTo4pm);
+		dailyWorkloads.put(FRIDAY, from8amTo4pm);
+		dailyWorkloads.put(SATURDAY, Workload.ZERO);
+		dailyWorkloads.put(SUNDAY, Workload.ZERO);
+		WorkloadPlanAnemia workloadPlanAnemia = new WorkloadPlanAnemia(FULL_TIME_WORKLOAD_PLAN_ID, dailyWorkloads);
 		repository.put(workloadPlanAnemia.id(), workloadPlanAnemia);
 
 		return repository;
