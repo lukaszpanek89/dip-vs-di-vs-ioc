@@ -16,6 +16,19 @@ import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_3.dependency_
 import java.time.LocalDate;
 import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_3.dependency_inversion_using_facades.domain.RepositoriesInitialData.TEAM_OAKS_ID;
 
+/**
+ * <b>PROBLEM:</b>
+ * <br>
+ * In what way any given object should cooperate with objects its depends upon?
+ * <br><br>
+ * <b>SOLUTION:</b>
+ * <br>
+ * This example relaxes solution described in
+ * {@link com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.Application}.
+ * <br>
+ * This example replaces abstractions that acted as bridges between packages (e.g., <code>ResourceCapacityProvider</code> interface,
+ * <code>WorkloadProvider</code> interface) with facades (e.g., {@link ResourceCapacityProvider} concrete class, {@link WorkloadProvider} concrete class).
+ */
 public class Application {
 
 	public static void main(String[] args) {

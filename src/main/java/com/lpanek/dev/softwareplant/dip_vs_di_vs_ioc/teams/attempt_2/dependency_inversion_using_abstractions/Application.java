@@ -5,6 +5,7 @@ import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.holidayplan.HolidayPlanRepository;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.holidayplan.resource.HolidayProviderImpl;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.resource.HolidayProvider;
+import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.resource.Resource;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.resource.ResourceFactory;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.resource.ResourceRepository;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.resource.WorkloadProvider;
@@ -19,6 +20,20 @@ import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_
 import java.time.LocalDate;
 import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.dependency_inversion_using_abstractions.domain.RepositoriesInitialData.TEAM_OAKS_ID;
 
+/**
+ * <b>PROBLEM:</b>
+ * <br>
+ * In what way any given object should cooperate with objects its depends upon?
+ * <br><br>
+ * <b>SOLUTION:</b>
+ * <br>
+ * This example improves solution described in
+ * {@link com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_1.typical_implementation.Application}.
+ * <br>
+ * This example uses <b>Dependency Inversion Principle</b> in order to invert source code dependencies between an object and objects it depends on (e.g.,
+ * {@link Team} no longer directly cooperates with {@link ResourceRepository} and {@link Resource}, instead it cooperates with
+ * {@link ResourceCapacityProvider} abstraction, which is on the same level of abstraction that {@link Team} is).
+ */
 public class Application {
 
 	public static void main(String[] args) {

@@ -11,6 +11,19 @@ import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.coffeemaker.attempt_2.depen
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.coffeemaker.attempt_2.dependency_injection.domain.Mill;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.coffeemaker.attempt_2.dependency_injection.domain.TurboHeater;
 
+/**
+ * <b>PROBLEM:</b>
+ * <br>
+ * How to construct object and its dependencies?
+ * <br><br>
+ * <b>SOLUTION:</b>
+ * <br>
+ * This example improves solution described in
+ * {@link com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.coffeemaker.attempt_1.typical_implementation.Application}.
+ * <br>
+ * This example uses <b>Dependency Injection</b>, one of <b>Inversion of Control</b> flavours - dependencies of an object ({@link CoffeeMaker}) are injected
+ * into that object via its constructor.
+ */
 public class Application {
 
 	public static void main(String[] args) {

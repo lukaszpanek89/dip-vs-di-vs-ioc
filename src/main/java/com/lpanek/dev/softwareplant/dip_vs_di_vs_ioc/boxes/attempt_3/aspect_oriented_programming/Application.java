@@ -4,11 +4,28 @@ import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_3.aspect_orie
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_3.aspect_oriented_programming.application.BoxService;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_3.aspect_oriented_programming.application.CreateBoxRequest;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_3.aspect_oriented_programming.application.DatePeriod;
+import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_3.aspect_oriented_programming.application.security.Secured;
+import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_3.aspect_oriented_programming.application.security.SecurityAspect;
+import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_3.aspect_oriented_programming.application.transaction.TransactionAspect;
+import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_3.aspect_oriented_programming.application.transaction.Transactional;
 import org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.util.Util.date;
 import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.util.Util.printApplicationMessage;
 
+/**
+ * <b>PROBLEM:</b>
+ * <br>
+ * How to handle aspects orthogonal to business logic (such as transactions, security, audit, logging)?
+ * <br><br>
+ * <b>SOLUTION:</b>
+ * <br>
+ * This example improves solution described in
+ * {@link com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_2.decorators.Application}.
+ * <br>
+ * This example uses <b>Aspect-Oriented Programming</b>, one of <b>Inversion of Control</b> flavours - {@link BoxService} methods are annotated with
+ * {@link Secured} and {@link Transactional} annotations, and appropriate aspects {@link SecurityAspect} and {@link TransactionAspect} handle them.
+ */
 public class Application {
 
 	public static void main(String[] args) {

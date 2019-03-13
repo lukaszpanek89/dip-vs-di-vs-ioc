@@ -11,6 +11,15 @@ import java.time.LocalDate;
 import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.util.Util.date;
 import static java.util.concurrent.TimeUnit.HOURS;
 
+/**
+ * <b>PROBLEM:</b>
+ * <br>
+ * How to notify dependent objects on changes in given object (i.e., in its state)?
+ * <br><br>
+ * <b>SOLUTION:</b>
+ * <br>
+ * This example shows a simple solution - changed object ({@link Resource}) notifies dependent objects ({@link TeamService} and {@link TaskService}) by itself.
+ */
 public class Application {
 
 	public static void main(String[] args) {

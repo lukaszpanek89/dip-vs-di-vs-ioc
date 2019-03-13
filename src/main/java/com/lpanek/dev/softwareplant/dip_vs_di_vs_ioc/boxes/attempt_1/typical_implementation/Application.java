@@ -9,6 +9,15 @@ import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_1.typical_imp
 import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.util.Util.date;
 import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.util.Util.printApplicationMessage;
 
+/**
+ * <b>PROBLEM:</b>
+ * <br>
+ * How to handle aspects orthogonal to business logic (such as transactions, security, audit, logging)?
+ * <br><br>
+ * <b>SOLUTION:</b>
+ * <br>
+ * This example shows a simple solution - service with business logic ({@link BoxService}) handles orthogonal aspects by itself.
+ */
 public class Application {
 
 	public static void main(String[] args) {

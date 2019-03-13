@@ -20,6 +20,18 @@ import java.util.concurrent.TimeUnit;
 import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.util.Util.date;
 import static java.util.concurrent.TimeUnit.HOURS;
 
+/**
+ * <b>PROBLEM:</b><br>
+ * How to notify dependent objects on changes in given object (i.e., in its state)?
+ * <br><br>
+ * <b>SOLUTION:</b>
+ * <br>
+ * This example improves solution described in
+ * {@link com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.resources.attempt_3.events_synchronous.Application}.
+ * <br>
+ * In this example, changed object ({@link Resource}) still indirectly notifies dependent objects ({@link TeamService} and {@link TaskService}) via
+ * {@link ResourceCapacityChangedEvent} event, but this time this event is passed to dependent objects asynchronously.
+ */
 public class Application {
 
 	public static void main(String[] args) {

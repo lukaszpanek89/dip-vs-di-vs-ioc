@@ -12,6 +12,22 @@ import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_2.decorators.
 import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.util.Util.date;
 import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.util.Util.printApplicationMessage;
 
+/**
+ * <b>PROBLEM:</b>
+ * <br>
+ * How to handle aspects orthogonal to business logic (such as transactions, security, audit, logging)?
+ * <br><br>
+ * <b>SOLUTION:</b>
+ * <br>
+ * This example improves solution described in
+ * {@link com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_1.typical_implementation.Application}.
+ * <br>
+ * In this example, decorator design pattern is introduced - {@link BoxService} becomes an interface and each of its implementations handles different
+ * aspect ({@link BoxServiceLogic} handles business logic, {@link BoxServiceTransaction} handles transactions, {@link BoxServiceSecurity} handles security).
+ * <br>
+ * As a result, this example makes the code consistent with <b>Single Responsibility Principle</b> - each of {@link BoxService} implementations has only one
+ * responsibility (one reason to change).
+ */
 public class Application {
 
 	public static void main(String[] args) {
