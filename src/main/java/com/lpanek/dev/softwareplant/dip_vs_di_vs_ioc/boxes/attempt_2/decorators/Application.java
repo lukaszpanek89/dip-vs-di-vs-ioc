@@ -1,6 +1,5 @@
 package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_2.decorators;
 
-import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_2.decorators.application.BoxId;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_2.decorators.application.BoxService;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_2.decorators.application.BoxServiceLogic;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_2.decorators.application.BoxServiceSecurity;
@@ -10,7 +9,6 @@ import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_2.decorators.
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_2.decorators.application.security.SecurityManager;
 import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_2.decorators.application.transaction.TransactionManager;
 import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.util.Util.date;
-import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.util.Util.printApplicationMessage;
 
 /**
  * <b>PROBLEM:</b>
@@ -40,14 +38,8 @@ public class Application {
 		BoxService boxService = boxService_Security_Transaction_Logic;
 
 		// ===== 2. USE CASE =====
-		printApplicationMessage("Boxes at the beginning: %s", boxService.getAllBoxes());
-
 		CreateBoxRequest createRequest = new CreateBoxRequest("Brand New Box", period("2019-03-11", "2019-03-15"));
-		BoxId boxId = boxService.createBox(createRequest);
-		printApplicationMessage("Boxes after create Box: %s", boxService.getAllBoxes());
-
-		boxService.deleteBox(boxId);
-		printApplicationMessage("Boxes after delete Box: %s", boxService.getAllBoxes());
+		boxService.createBox(createRequest);
 	}
 
 	private static DatePeriod period(String startDate, String endDate) {

@@ -34,12 +34,11 @@ public class Resource {
 	public void changeCapacityOn(LocalDate date, Capacity newCapacity) {
 		Capacity oldCapacity = getCapacityOn(date);
 		doChangeCapacity(date, newCapacity);
-		printEntityMessage(this, "Capacity on date %s changed from %s to %s\n", date, oldCapacity, newCapacity);
+		printEntityMessage(this, "Capacity on date %s changed from %s to %s", date, oldCapacity, newCapacity);
 
 		ResourceCapacityChangedEvent event = new ResourceCapacityChangedEvent(ZonedDateTime.now(), anemia.id(), date, oldCapacity, newCapacity);
-		printEntityMessage(this, "About to publish event %s", event);
+		printEntityMessage(this, "Publishes event\n");
 		eventPublisher.publish(event);
-		printEntityMessage(this, "Event %s published\n", event);
 	}
 
 	ResourceAnemia toAnemia() {

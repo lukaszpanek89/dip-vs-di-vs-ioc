@@ -4,7 +4,6 @@ import com.google.common.base.Objects;
 import com.google.common.collect.Maps;
 import java.time.LocalDate;
 import java.util.Map;
-import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.util.Util.printEntityMessage;
 
 public class Resource {
 
@@ -35,20 +34,15 @@ public class Resource {
 	public void changeCapacityOn(LocalDate date, Capacity newCapacity) {
 		Capacity oldCapacity = getCapacityOn(date);
 		doChangeCapacity(date, newCapacity);
-		printEntityMessage(this, "Capacity on date %s changed from %s to %s\n", date, oldCapacity, newCapacity);
 
 		try {
-			printEntityMessage(this, "About to notify %s about the change", teamService.getClass().getSimpleName());
 			teamService.handleResourceCapacityChange(anemia.id(), date, oldCapacity, newCapacity);
-			printEntityMessage(this, "Notified %s about the change\n", teamService.getClass().getSimpleName());
 		} catch (RuntimeException e) {
 			// Exception handling goes here...
 		}
 
 		try {
-			printEntityMessage(this, "About to notify %s about the change", taskService.getClass().getSimpleName());
 			taskService.handleResourceCapacityChange(anemia.id(), date, oldCapacity, newCapacity);
-			printEntityMessage(this, "Notified %s about the change\n", taskService.getClass().getSimpleName());
 		} catch (RuntimeException e) {
 			// Exception handling goes here...
 		}

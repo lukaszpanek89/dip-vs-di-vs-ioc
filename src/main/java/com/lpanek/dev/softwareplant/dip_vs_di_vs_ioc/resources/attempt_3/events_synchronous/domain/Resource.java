@@ -6,7 +6,6 @@ import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.resources.attempt_3.events_
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.Map;
-import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.util.Util.printEntityMessage;
 
 public class Resource {
 
@@ -34,12 +33,9 @@ public class Resource {
 	public void changeCapacityOn(LocalDate date, Capacity newCapacity) {
 		Capacity oldCapacity = getCapacityOn(date);
 		doChangeCapacity(date, newCapacity);
-		printEntityMessage(this, "Capacity on date %s changed from %s to %s\n", date, oldCapacity, newCapacity);
 
 		ResourceCapacityChangedEvent event = new ResourceCapacityChangedEvent(ZonedDateTime.now(), anemia.id(), date, oldCapacity, newCapacity);
-		printEntityMessage(this, "About to publish event %s", event);
 		eventPublisher.publish(event);
-		printEntityMessage(this, "Event %s published", event);
 	}
 
 	ResourceAnemia toAnemia() {

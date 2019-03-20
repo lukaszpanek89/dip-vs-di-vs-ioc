@@ -5,6 +5,6 @@ import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.util.Util.printServi
 public class TeamService implements ResourceCapacityObserver {
 
 	public void onCapacityChange(ResourceCapacityChangedEvent event) {
-		printServiceMessage(this, "Handles event %s", event);
+		printServiceMessage(this, "Handles event");
 	}
 }

@@ -14,7 +14,7 @@ public class ResourceCapacityChangedEventAppender implements EventSubscriber<Res
 
 	@Override
 	public void handleEvent(ResourceCapacityChangedEvent event) {
-		printServiceMessage(this, "Handles event %s", event);
+		printServiceMessage(this, "Appends event to store\n");
 		eventStore.append(event);
 	}
 }

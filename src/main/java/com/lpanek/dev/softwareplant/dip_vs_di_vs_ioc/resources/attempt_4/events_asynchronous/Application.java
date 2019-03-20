@@ -49,7 +49,7 @@ public class Application {
 		ResourceCapacityChangedEventProcessor eventProcessor
 				= new ResourceCapacityChangedEventProcessor(eventStore, Lists.newArrayList(teamService, taskService));
 		ScheduledExecutorService threadPool = Executors.newScheduledThreadPool(1);
-		threadPool.scheduleWithFixedDelay(eventProcessor::processEvents, 10, 5, TimeUnit.SECONDS);
+		threadPool.scheduleWithFixedDelay(eventProcessor::processEvents, 40, 10, TimeUnit.SECONDS);
 
 		// ===== 2. USE CASE =====
 		ResourceId resourceId = new ResourceId("john.doe");

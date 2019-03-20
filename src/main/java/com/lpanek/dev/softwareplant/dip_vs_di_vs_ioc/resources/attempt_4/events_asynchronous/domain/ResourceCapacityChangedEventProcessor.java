@@ -18,11 +18,11 @@ public class ResourceCapacityChangedEventProcessor {
 	public void processEvents() {
 		List<ResourceCapacityChangedEvent> events = eventStore.getNotYetProcessedEvents(ResourceCapacityChangedEvent.class);
 		if (events.isEmpty()) {
-			printServiceMessage(this, "No events to process\n");
+			printServiceMessage(this, "No unprocessed events found in store\n");
 			return;
 		}
 
-		printServiceMessage(this, "About to notify %d observer(s) about %d event(s)", observers.size(), events.size());
+		printServiceMessage(this, "Notifies %d observer(s) about %d event(s) found in store", observers.size(), events.size());
 		for (int i = 0; i < events.size(); ++i) {
 			ResourceCapacityChangedEvent event = events.get(i);
 			try {
@@ -34,12 +34,10 @@ public class ResourceCapacityChangedEventProcessor {
 				if (i > 0) {
 					ResourceCapacityChangedEvent lastSuccessfullyProcessedEvent = events.get(i - 1);
 					eventStore.markEventsUntilGivenAsProcessed(lastSuccessfullyProcessedEvent);
-					printServiceMessage(this, "(s) processed only %d event(s) out of %d because of an error\n", observers.size(), i - 1, events.size());
 				}
 				return;
 			}
 		}
 		eventStore.markEventsUntilGivenAsProcessed(events.get(events.size() - 1));
-		printServiceMessage(this, "%d observer(s) processed %d event(s)\n", observers.size(), events.size());
 	}
 }

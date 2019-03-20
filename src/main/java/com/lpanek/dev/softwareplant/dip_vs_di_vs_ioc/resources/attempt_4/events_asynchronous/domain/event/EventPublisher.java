@@ -2,9 +2,7 @@ package com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.resources.attempt_4.events
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
-import com.google.common.collect.Sets;
 import java.util.Collection;
-import java.util.Set;
 import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.util.Util.printServiceMessage;
 
 public class EventPublisher {
@@ -17,27 +15,16 @@ public class EventPublisher {
 
 	@SuppressWarnings("unchecked")
 	public <EVENT_TYPE extends Event> void publish(EVENT_TYPE event) {
-		Collection<EventSubscriber> subscribersOfGivenEvent = subscribers.get(event.getClass());
-		Collection<EventSubscriber> subscribersOfAllEvents = subscribers.get(Event.class);
-		Collection<EventSubscriber> subscribersSum = sum(subscribersOfGivenEvent, subscribersOfAllEvents);
-		printServiceMessage(this, "About to notify %d subscriber(s) about event %s", subscribersSum.size(), event);
+		Collection<EventSubscriber> eventSubscribers = subscribers.get(event.getClass());
+		printServiceMessage(this, "Notifies %d subscriber(s) about 1 event", eventSubscribers.size());
 
-		for (EventSubscriber subscriber : subscribersSum) {
+		for (EventSubscriber eventSubscriber : eventSubscribers) {
 			try {
-				subscriber.handleEvent(event);
+				eventSubscriber.handleEvent(event);
 			} catch (RuntimeException e) {
 				// Exception handling goes here...
 			}
 		}
-
-		printServiceMessage(this, "%d subscriber(s) notified about event %s", subscribersSum.size(), event);
-	}
-
-	private Collection<EventSubscriber> sum(Collection<EventSubscriber> subscribers1, Collection<EventSubscriber> subscribers2) {
-		Set<EventSubscriber> sum = Sets.newHashSet();
-		sum.addAll(subscribers1);
-		sum.addAll(subscribers2);
-		return sum;
 	}
 
 }

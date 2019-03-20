@@ -5,7 +5,6 @@ import com.google.common.collect.Maps;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
-import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.util.Util.printEntityMessage;
 
 public class Resource {
 
@@ -33,13 +32,10 @@ public class Resource {
 	public void changeCapacityOn(LocalDate date, Capacity newCapacity) {
 		Capacity oldCapacity = getCapacityOn(date);
 		doChangeCapacity(date, newCapacity);
-		printEntityMessage(this, "Capacity on date %s changed from %s to %s\n", date, oldCapacity, newCapacity);
 
 		for (ResourceCapacityObserver observer : resourceCapacityObservers) {
 			try {
-				printEntityMessage(this, "About to notify observer %s about the change", observer.getClass().getSimpleName());
 				observer.onResourceCapacityChange(anemia.id(), date, oldCapacity, newCapacity);
-				printEntityMessage(this, "Notified observer %s about the change\n", observer.getClass().getSimpleName());
 			} catch (RuntimeException e) {
 				// Exception handling goes here...
 			}
