@@ -21,13 +21,13 @@ public class TransactionAspect {
 	@Around("@annotation(com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_3.aspect_oriented_programming.application.transaction.Transactional)")
 	public Object execute(ProceedingJoinPoint joinPoint) throws Throwable {
 		printServiceMessage(this, "Before " + signatureOf(joinPoint));
-		transactionManager.beforeInvocation();
+		transactionManager.beginTransaction();
 		try {
 			Object proceedResult = joinPoint.proceed();
-			transactionManager.afterSuccessfulInvocation();
+			transactionManager.commitTransaction();
 			return proceedResult;
 		} catch (Throwable throwable) {
-			transactionManager.afterFailedInvocation();
+			transactionManager.rollbackTransaction();
 			throw throwable;
 		} finally {
 			printServiceMessage(this, "After " + signatureOf(joinPoint));

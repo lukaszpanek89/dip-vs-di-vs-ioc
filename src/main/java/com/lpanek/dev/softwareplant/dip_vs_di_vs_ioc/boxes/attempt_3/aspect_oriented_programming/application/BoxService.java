@@ -12,11 +12,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class BoxService {
 
-	private final Map<BoxId, Box> boxesMap = Maps.newHashMap();
+	private final Map<BoxId, Box> boxRepository = Maps.newHashMap();
 
 	@Secured
 	public Set<Box> getAllBoxes() {
-		Set<Box> boxesSet = Sets.newHashSet(boxesMap.values());
+		Set<Box> boxesSet = Sets.newHashSet(boxRepository.values());
 		return Collections.unmodifiableSet(boxesSet);
 	}
 
@@ -24,13 +24,13 @@ public class BoxService {
 	@Transactional
 	public BoxId createBox(CreateBoxRequest request) {
 		Box box = Box.from(request);
-		boxesMap.put(box.id(), box);
+		boxRepository.put(box.id(), box);
 		return box.id();
 	}
 
 	@Secured
 	@Transactional
 	public void deleteBox(BoxId boxId) {
-		boxesMap.remove(boxId);
+		boxRepository.remove(boxId);
 	}
 }

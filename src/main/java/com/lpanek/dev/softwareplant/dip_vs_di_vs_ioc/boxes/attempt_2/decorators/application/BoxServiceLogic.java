@@ -8,20 +8,20 @@ import java.util.Set;
 
 public class BoxServiceLogic implements BoxService {
 
-	private final Map<BoxId, Box> boxesMap = Maps.newHashMap();
+	private final Map<BoxId, Box> boxRepository = Maps.newHashMap();
 
 	public Set<Box> getAllBoxes() {
-		Set<Box> boxesSet = Sets.newHashSet(boxesMap.values());
+		Set<Box> boxesSet = Sets.newHashSet(boxRepository.values());
 		return Collections.unmodifiableSet(boxesSet);
 	}
 
 	public BoxId createBox(CreateBoxRequest request) {
 		Box box = Box.from(request);
-		boxesMap.put(box.id(), box);
+		boxRepository.put(box.id(), box);
 		return box.id();
 	}
 
 	public void deleteBox(BoxId boxId) {
-		boxesMap.remove(boxId);
+		boxRepository.remove(boxId);
 	}
 }

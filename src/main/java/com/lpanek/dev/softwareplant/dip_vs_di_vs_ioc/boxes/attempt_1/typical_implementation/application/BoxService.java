@@ -14,7 +14,7 @@ public class BoxService {
 
 	private final TransactionManager transactionManager;
 
-	private final Map<BoxId, Box> boxesMap = Maps.newHashMap();
+	private final Map<BoxId, Box> boxRepository = Maps.newHashMap();
 
 	public BoxService(SecurityManager securityManager, TransactionManager transactionManager) {
 		this.securityManager = securityManager;
@@ -23,33 +23,33 @@ public class BoxService {
 
 	public Set<Box> getAllBoxes() {
 		securityManager.validateHasPrivilege();
-		Set<Box> boxesSet = Sets.newHashSet(boxesMap.values());
+		Set<Box> boxesSet = Sets.newHashSet(boxRepository.values());
 		return Collections.unmodifiableSet(boxesSet);
 	}
 
 	public BoxId createBox(CreateBoxRequest request) {
 		securityManager.validateHasPrivilege();
-		transactionManager.beforeInvocation();
+		transactionManager.beginTransaction();
 		try {
 			Box box = Box.from(request);
 			BoxId boxId = box.id();
-			boxesMap.put(boxId, box);
-			transactionManager.afterSuccessfulInvocation();
+			boxRepository.put(boxId, box);
+			transactionManager.commitTransaction();
 			return boxId;
 		} catch (Exception e) {
-			transactionManager.afterFailedInvocation();
+			transactionManager.rollbackTransaction();
 			throw e;
 		}
 	}
 
 	public void deleteBox(BoxId boxId) {
 		securityManager.validateHasPrivilege();
-		transactionManager.beforeInvocation();
+		transactionManager.beginTransaction();
 		try {
-			boxesMap.remove(boxId);
-			transactionManager.afterSuccessfulInvocation();
+			boxRepository.remove(boxId);
+			transactionManager.commitTransaction();
 		} catch (Exception e) {
-			transactionManager.afterFailedInvocation();
+			transactionManager.rollbackTransaction();
 			throw e;
 		}
 	}

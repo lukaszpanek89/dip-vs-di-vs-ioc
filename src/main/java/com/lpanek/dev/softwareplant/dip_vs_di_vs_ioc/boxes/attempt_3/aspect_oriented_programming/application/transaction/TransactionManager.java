@@ -10,35 +10,35 @@ public class TransactionManager {
 
 	private boolean shouldCommit = true;
 
-	public void beforeInvocation() {
+	public void beginTransaction() {
 		++transactionDepth;
 		if (transactionDepth == 1) {
-			beginTransaction();
+			doBeginTransaction();
 		} else {
 			continuePreviouslyBegunTransaction();
 		}
 	}
 
-	public void afterSuccessfulInvocation() {
+	public void commitTransaction() {
 		--transactionDepth;
 		if (transactionDepth == 0) {
 			if (shouldCommit) {
-				commitTransaction();
+				doCommitTransaction();
 			} else {
-				rollbackTransaction();
+				doRollbackTransaction();
 			}
 		}
 	}
 
-	public void afterFailedInvocation() {
+	public void rollbackTransaction() {
 		shouldCommit = false;
 		--transactionDepth;
 		if (transactionDepth == 0) {
-			rollbackTransaction();
+			doRollbackTransaction();
 		}
 	}
 
-	private void beginTransaction() {
+	private void doBeginTransaction() {
 		printServiceMessage(this, "Begins transaction");
 	}
 
@@ -46,11 +46,11 @@ public class TransactionManager {
 		printServiceMessage(this, "Continues previously begun transaction");
 	}
 
-	private void commitTransaction() {
+	private void doCommitTransaction() {
 		printServiceMessage(this, "Commits transaction");
 	}
 
-	private void rollbackTransaction() {
+	private void doRollbackTransaction() {
 		printServiceMessage(this, "Rollbacks transaction");
 	}
 

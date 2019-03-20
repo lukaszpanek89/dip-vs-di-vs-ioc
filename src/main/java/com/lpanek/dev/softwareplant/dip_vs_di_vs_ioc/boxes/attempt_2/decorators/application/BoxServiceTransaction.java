@@ -19,24 +19,24 @@ public class BoxServiceTransaction implements BoxService {
 	}
 
 	public BoxId createBox(CreateBoxRequest request) {
-		transactionManager.beforeInvocation();
+		transactionManager.beginTransaction();
 		try {
 			BoxId boxId = boxService.createBox(request);
-			transactionManager.afterSuccessfulInvocation();
+			transactionManager.commitTransaction();
 			return boxId;
 		} catch (Exception e) {
-			transactionManager.afterFailedInvocation();
+			transactionManager.rollbackTransaction();
 			throw e;
 		}
 	}
 
 	public void deleteBox(BoxId boxId) {
-		transactionManager.beforeInvocation();
+		transactionManager.beginTransaction();
 		try {
 			boxService.deleteBox(boxId);
-			transactionManager.afterSuccessfulInvocation();
+			transactionManager.commitTransaction();
 		} catch (Exception e) {
-			transactionManager.afterFailedInvocation();
+			transactionManager.rollbackTransaction();
 			throw e;
 		}
 	}
