@@ -13,18 +13,18 @@ Inversion of Control has 4 flavours:
 * Aspect-Oriented Programming (AOP)
 * Frameworks in general
 
-Examples related to **Dependency Injection** are gathered under `com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.coffeemaker` package.
+Examples related to **Dependency Injection** are gathered under `com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.coffeemaker` package.
 
-Examples related to **Events** are gathered under `com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.resources` package.
+Examples related to **Events** are gathered under `com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.resources` package.
 
-Examples related to **Aspect-Oriented Programming** are gathered under `com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes` package.
+Examples related to **Aspect-Oriented Programming** are gathered under `com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.boxes` package.
 
 There are no examples related to **Frameworks** (yet?).
 
 Examples for Dependency Inversion Principle (DIP)
 -------------------------------------------------
 
-Examples related to **Dependency Inversion Principle** are gathered under `com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams` package.
+Examples related to **Dependency Inversion Principle** are gathered under `com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.teams` package.
 
 General notes on all examples
 -----------------------------
