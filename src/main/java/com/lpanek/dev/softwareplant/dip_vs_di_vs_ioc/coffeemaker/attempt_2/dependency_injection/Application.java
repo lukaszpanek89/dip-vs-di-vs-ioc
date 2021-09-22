@@ -20,7 +20,7 @@ import com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.coffeemaker.attempt_2.depen
  * <br>
  * This example improves solution described in
  * {@link com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.coffeemaker.attempt_1.typical_implementation.Application}.
- * <br>
+ * <br><br>
  * This example uses <b>Dependency Injection</b>, one of <b>Inversion of Control</b> flavours - dependencies of an object ({@link CoffeeMaker}) are injected
  * into that object via its constructor.
  */

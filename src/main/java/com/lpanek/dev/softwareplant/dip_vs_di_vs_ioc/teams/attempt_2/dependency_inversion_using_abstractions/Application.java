@@ -29,7 +29,7 @@ import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_2.depe
  * <br>
  * This example improves solution described in
  * {@link com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.teams.attempt_1.typical_implementation.Application}.
- * <br>
+ * <br><br>
  * This example uses <b>Dependency Inversion Principle</b> in order to invert source code dependencies between an object and objects it depends on (e.g.,
  * {@link Team} no longer directly cooperates with {@link ResourceRepository} and {@link Resource}, instead it cooperates with
  * {@link ResourceCapacityProvider} abstraction, which is on the same level of abstraction that {@link Team} is).

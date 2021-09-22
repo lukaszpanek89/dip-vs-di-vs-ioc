@@ -22,7 +22,7 @@ import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.util.Util.printAppli
  * <br>
  * This example improves solution described in
  * {@link com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_2.decorators.Application}.
- * <br>
+ * <br><br>
  * This example uses <b>Aspect-Oriented Programming</b>, one of <b>Inversion of Control</b> flavours - {@link BoxService} methods are annotated with
  * {@link Secured} and {@link Transactional} annotations, and appropriate aspects {@link SecurityAspect} and {@link TransactionAspect} handle them.
  */

@@ -21,10 +21,10 @@ import static com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.util.Util.printAppli
  * <br>
  * This example improves solution described in
  * {@link com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.boxes.attempt_1.typical_implementation.Application}.
- * <br>
- * In this example, decorator design pattern is introduced - {@link BoxService} becomes an interface and each of its implementations handles different
+ * <br><br>
+ * In this example, <b>Decorator design pattern</b> is introduced - {@link BoxService} becomes an interface and each of its implementations handles different
  * aspect ({@link BoxServiceLogic} handles business logic, {@link BoxServiceTransaction} handles transactions, {@link BoxServiceSecurity} handles security).
- * <br>
+ * <br><br>
  * As a result, this example makes the code consistent with <b>Single Responsibility Principle</b> - each of {@link BoxService} implementations has only one
  * responsibility (one reason to change).
  */

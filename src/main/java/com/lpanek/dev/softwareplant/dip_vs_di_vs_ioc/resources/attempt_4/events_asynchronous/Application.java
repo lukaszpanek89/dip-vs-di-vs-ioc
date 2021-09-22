@@ -28,7 +28,7 @@ import static java.util.concurrent.TimeUnit.HOURS;
  * <br>
  * This example improves solution described in
  * {@link com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.resources.attempt_3.events_synchronous.Application}.
- * <br>
+ * <br><br>
  * In this example, changed object ({@link Resource}) still indirectly notifies dependent objects ({@link TeamService} and {@link TaskService}) via
  * {@link ResourceCapacityChangedEvent} event, but this time this event is passed to dependent objects asynchronously.
  */

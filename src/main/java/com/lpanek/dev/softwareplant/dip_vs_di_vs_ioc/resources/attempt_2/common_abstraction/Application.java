@@ -22,10 +22,10 @@ import static java.util.concurrent.TimeUnit.HOURS;
  * <br>
  * This example improves solution described in
  * {@link com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.resources.attempt_1.typical_implementation.Application}.
- * <br>
+ * <br><br>
  * In this example, changed object ({@link Resource}) still notifies dependent objects ({@link TeamService} and {@link TaskService}) by itself, but this time
  * these dependent objects are hidden behind {@link ResourceCapacityObserver} abstraction.
- * <br>
+ * <br><br>
  * As a result, this example makes the code consistent with:
  * <ul>
  * <li><b>Open-Closed Principle</b> - should any new dependent object appear, no code will be changed in {@link Resource} class,</li>

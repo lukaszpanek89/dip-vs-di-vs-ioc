@@ -28,11 +28,11 @@ import static java.util.concurrent.TimeUnit.HOURS;
  * <br>
  * This example improves solution described in
  * {@link com.lpanek.dev.softwareplant.dip_vs_di_vs_ioc.resources.attempt_4.events_asynchronous.Application}.
- * <br>
+ * <br><br>
  * In this example, {@link Resource} no longer publishes its event {@link ResourceCapacityChangedEvent} by itself. Instead it only creates this event and then
  * lets {@link ResourceRepository} publish it. {@link ResourceRepository} publishes the event only after it successfully persists changes in
  * {@link Resource}'s state (see: {@link ResourceRepository#save(Resource)}).
- * <br>
+ * <br><br>
  * Thanks to that change, there is no longer risk that changes in {@link Resource}'s state will be cancelled (rolled back) <em>AFTER</em> observers
  * reacted to them.
  */
