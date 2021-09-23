@@ -44,7 +44,7 @@ Worth reading & watching
 
 2. Inversion of Control
    * [_Inversion of Control Containers and the Dependency Injection pattern_](https://martinfowler.com/articles/injection.html) - Martin Fowler (_martinfowler.com_)
-   * (Polish) [_Cztery smaki odwracania (i utraty) kontroli_](https://bottega.com.pl/pdf/materialy/receptury/ioc.pdf) - Sławomir Sobótka (_bottega.com.pl_)
+   * (Polish) [_Four flavours of inverting (and losing) control_](https://bottega.com.pl/pdf/materialy/receptury/ioc.pdf) - Sławomir Sobótka (_bottega.com.pl_)
    * _Implementing Domain-Driven Design_, chapter _8. Domain Events_ - Vaughn Vernon
 
 3. Other
