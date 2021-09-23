@@ -33,3 +33,19 @@ General notes on all examples
 2. Each `Application` class is documented with JavaDoc, so one can exactly know what to expect from each example.
 
 Enjoy!
+
+Worth reading & watching
+-----------------------------
+
+1. Dependency Inversion Principle & Hexagonal Architecture
+   * _Clean Architecture_ - Robert C. Martin
+   * _Implementing Domain-Driven Design_, chapter _4. Architecture_ - Vaughn Vernon
+   * [_DIP in the Wild_](https://martinfowler.com/articles/dipInTheWild.html) - Brett L. Schuchert (_martinfowler.com_)
+
+2. Inversion of Control
+   * [_Inversion of Control Containers and the Dependency Injection pattern_](https://martinfowler.com/articles/injection.html) - Martin Fowler (_martinfowler.com_)
+   * (Polish) [_Cztery smaki odwracania (i utraty) kontroli_](https://bottega.com.pl/pdf/materialy/receptury/ioc.pdf) - Sławomir Sobótka (_bottega.com.pl_)
+   * _Implementing Domain-Driven Design_, chapter _8. Domain Events_ - Vaughn Vernon
+
+3. Other
+   * (Polish) [_Experiment on keeping same level of abstraction in methods & functions_](https://bit.ly/panek-experiment) - Łukasz Panek
