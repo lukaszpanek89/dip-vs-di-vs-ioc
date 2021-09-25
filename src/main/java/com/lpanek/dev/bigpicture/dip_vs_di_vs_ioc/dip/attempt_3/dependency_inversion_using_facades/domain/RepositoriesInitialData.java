@@ -16,4 +16,8 @@ public class RepositoriesInitialData {
 	public static ResourceId KATHY_ID = new ResourceId("kathy.stidolph");
 
 	public static TeamId TEAM_OAKS_ID = new TeamId("Oaks");
+
+	private RepositoriesInitialData() {
+		// Intentionally left empty
+	}
 }

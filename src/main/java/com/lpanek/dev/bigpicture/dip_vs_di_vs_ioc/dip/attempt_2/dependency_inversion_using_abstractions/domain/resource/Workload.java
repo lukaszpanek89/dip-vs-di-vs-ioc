@@ -1,9 +1,11 @@
 package com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.dip.attempt_2.dependency_inversion_using_abstractions.domain.resource;
 
 import com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.dip.attempt_2.dependency_inversion_using_abstractions.domain.common.Capacity;
+import com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.util.Immutable;
 import java.util.concurrent.TimeUnit;
 import static org.joda.time.DateTimeConstants.MINUTES_PER_DAY;
 
+@Immutable
 public final class Workload {
 
 	private final int startMinute;

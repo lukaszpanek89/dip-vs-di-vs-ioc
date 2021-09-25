@@ -1,10 +1,12 @@
 package com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.dip.attempt_2.dependency_inversion_using_abstractions.domain.workloadplan;
 
+import com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.util.Immutable;
 import java.time.DayOfWeek;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+@Immutable
 final class WorkloadPlanAnemia {
 
 	private final WorkloadPlanId id;

@@ -1,8 +1,10 @@
 package com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.dip.attempt_2.dependency_inversion_using_abstractions.domain.workloadplan;
 
+import com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.util.Immutable;
 import java.util.concurrent.TimeUnit;
 import static org.joda.time.DateTimeConstants.MINUTES_PER_DAY;
 
+@Immutable
 public final class Workload {
 
 	public static final Workload ZERO = new Workload(0, 0);

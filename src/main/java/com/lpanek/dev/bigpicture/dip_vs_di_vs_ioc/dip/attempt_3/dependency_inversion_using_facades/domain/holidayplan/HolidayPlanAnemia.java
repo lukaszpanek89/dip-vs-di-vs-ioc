@@ -1,10 +1,12 @@
 package com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.dip.attempt_3.dependency_inversion_using_facades.domain.holidayplan;
 
+import com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.util.Immutable;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+@Immutable
 final class HolidayPlanAnemia {
 
 	private final HolidayPlanId id;

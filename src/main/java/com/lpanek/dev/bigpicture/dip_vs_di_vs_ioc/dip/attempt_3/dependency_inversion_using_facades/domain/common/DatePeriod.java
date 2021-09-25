@@ -1,7 +1,9 @@
 package com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.dip.attempt_3.dependency_inversion_using_facades.domain.common;
 
+import com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.util.Immutable;
 import java.time.LocalDate;
 
+@Immutable
 public final class DatePeriod {
 
 	private final LocalDate startDate;

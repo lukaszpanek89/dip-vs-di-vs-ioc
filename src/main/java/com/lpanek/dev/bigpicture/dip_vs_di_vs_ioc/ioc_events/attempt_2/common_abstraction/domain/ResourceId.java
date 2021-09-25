@@ -1,7 +1,9 @@
 package com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.ioc_events.attempt_2.common_abstraction.domain;
 
 import com.google.common.base.Objects;
+import com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.util.Immutable;
 
+@Immutable
 public final class ResourceId {
 
 	private final String id;

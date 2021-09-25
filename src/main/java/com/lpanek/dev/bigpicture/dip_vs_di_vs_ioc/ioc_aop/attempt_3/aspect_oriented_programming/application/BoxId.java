@@ -1,7 +1,9 @@
 package com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.ioc_aop.attempt_3.aspect_oriented_programming.application;
 
 import com.google.common.base.Objects;
+import com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.util.Immutable;
 
+@Immutable
 public final class BoxId {
 
 	private final String id;

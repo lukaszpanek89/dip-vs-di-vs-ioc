@@ -11,4 +11,8 @@ public class RepositoriesInitialData {
 	public static String KATHY_ID = "kathy.stidolph";
 
 	public static String TEAM_OAKS_ID = "Oaks";
+
+	private RepositoriesInitialData() {
+		// Intentionally left empty
+	}
 }

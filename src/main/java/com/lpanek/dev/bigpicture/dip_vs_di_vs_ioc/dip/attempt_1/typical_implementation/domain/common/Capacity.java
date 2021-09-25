@@ -1,7 +1,9 @@
 package com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.dip.attempt_1.typical_implementation.domain.common;
 
+import com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.util.Immutable;
 import java.util.concurrent.TimeUnit;
 
+@Immutable
 public final class Capacity {
 
 	private static final TimeUnit INTERNAL_TIME_UNIT = TimeUnit.MINUTES;

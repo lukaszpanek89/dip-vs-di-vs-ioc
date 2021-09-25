@@ -2,9 +2,11 @@ package com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.ioc_events.attempt_5.event_pu
 
 import com.google.common.base.Objects;
 import com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.ioc_events.attempt_5.event_published_AFTER_state_change_is_persisted.domain.event.Event;
+import com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.util.Immutable;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 
+@Immutable
 public final class ResourceCapacityChangedEvent extends Event {
 
 	private final ResourceId resourceId;

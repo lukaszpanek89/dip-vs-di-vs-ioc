@@ -2,7 +2,9 @@ package com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.dip.attempt_3.dependency_inve
 
 import com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.dip.attempt_3.dependency_inversion_using_facades.domain.holidayplan.HolidayPlanId;
 import com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.dip.attempt_3.dependency_inversion_using_facades.domain.workloadplan.WorkloadPlanId;
+import com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.util.Immutable;
 
+@Immutable
 final class ResourceAnemia {
 
 	private final ResourceId id;
