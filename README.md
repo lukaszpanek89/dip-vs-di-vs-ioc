@@ -1,8 +1,13 @@
-dip-vs-di-vs-ioc
+Dependency Inversion Principle (DIP) vs. Dependency Injection (DI) vs. Inversion of Control (IoC)
 ====================
 
 This is a collection of simple code examples that I used during my presentations entitled _DIP vs. DI vs. IoC_. In these presentations I explain how DIP, DI, 
 and IoC relate to each other, in what aspects they are similar, and in what ones they differ.
+
+Examples for Dependency Inversion Principle (DIP)
+-------------------------------------------------
+
+Examples related to **Dependency Inversion Principle** are gathered under `com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.dip` package.
 
 Examples for Inversion of Control (IoC)
 ---------------------------------------
@@ -13,18 +18,13 @@ Inversion of Control has 4 flavours:
 * Aspect-Oriented Programming (AOP)
 * Frameworks in general
 
-Examples related to **Dependency Injection** are gathered under `com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.coffeemaker` package.
+Examples related to **Dependency Injection** are gathered under `com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.ioc_di` package.
 
-Examples related to **Events** are gathered under `com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.resources` package.
+Examples related to **Events** are gathered under `com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.ioc_events` package.
 
-Examples related to **Aspect-Oriented Programming** are gathered under `com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.boxes` package.
+Examples related to **Aspect-Oriented Programming** are gathered under `com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.ioc_aop` package.
 
 There are no examples related to **Frameworks** (yet?).
-
-Examples for Dependency Inversion Principle (DIP)
--------------------------------------------------
-
-Examples related to **Dependency Inversion Principle** are gathered under `com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.teams` package.
 
 General notes on all examples
 -----------------------------
