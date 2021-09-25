@@ -2,6 +2,7 @@ package com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.dip.attempt_2.dependency_inve
 
 import java.time.LocalDate;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 
 final class HolidayPlanAnemia {
@@ -12,7 +13,7 @@ final class HolidayPlanAnemia {
 
 	HolidayPlanAnemia(HolidayPlanId id, Set<LocalDate> holidays) {
 		this.id = id;
-		this.holidays = holidays;
+		this.holidays = new HashSet<>(holidays);
 	}
 
 	HolidayPlanId id() {

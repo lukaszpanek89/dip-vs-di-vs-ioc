@@ -2,6 +2,7 @@ package com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.ioc_events.attempt_4.events_a
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -58,7 +59,7 @@ public class EventStore {
 				return Collections.emptyList();
 			}
 			List<EVENT_TYPE> notYetProcessedEvents = events.subList(indexOfFirstNotYetProcessedEvent, events.size());
-			return Collections.unmodifiableList(notYetProcessedEvents);
+			return Collections.unmodifiableList(new ArrayList<>(notYetProcessedEvents));
 		}
 
 		void markEventsUntilGivenAsProcessed(EVENT_TYPE lastProcessedEvent) {

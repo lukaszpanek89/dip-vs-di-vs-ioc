@@ -3,6 +3,7 @@ package com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.dip.attempt_1.typical_impleme
 import com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.dip.attempt_1.typical_implementation.domain.common.PercentageAvailability;
 import com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.dip.attempt_1.typical_implementation.domain.resource.ResourceId;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 final class TeamAnemia {
@@ -13,7 +14,7 @@ final class TeamAnemia {
 
 	TeamAnemia(TeamId id, Map<ResourceId, PercentageAvailability> members) {
 		this.id = id;
-		this.members = members;
+		this.members = new HashMap<>(members);
 	}
 
 	TeamId id() {

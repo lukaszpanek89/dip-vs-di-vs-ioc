@@ -2,6 +2,7 @@ package com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.dip.attempt_3.dependency_inve
 
 import java.time.DayOfWeek;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 final class WorkloadPlanAnemia {
@@ -15,7 +16,7 @@ final class WorkloadPlanAnemia {
 			throw new RuntimeException(String.format("There should be daily workload for each day of week, but was for %d days only", dailyWorkloads.size()));
 		}
 		this.id = id;
-		this.dailyWorkloads = dailyWorkloads;
+		this.dailyWorkloads = new HashMap<>(dailyWorkloads);
 	}
 
 	WorkloadPlanId id() {

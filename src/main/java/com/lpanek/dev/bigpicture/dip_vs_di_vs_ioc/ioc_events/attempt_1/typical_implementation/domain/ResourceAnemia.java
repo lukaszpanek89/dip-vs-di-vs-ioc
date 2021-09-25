@@ -3,6 +3,7 @@ package com.lpanek.dev.bigpicture.dip_vs_di_vs_ioc.ioc_events.attempt_1.typical_
 import com.google.common.base.Objects;
 import java.time.LocalDate;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 final class ResourceAnemia {
@@ -13,7 +14,7 @@ final class ResourceAnemia {
 
 	ResourceAnemia(ResourceId id, Map<LocalDate, Capacity> dailyCapacities) {
 		this.id = id;
-		this.dailyCapacities = Collections.unmodifiableMap(dailyCapacities);
+		this.dailyCapacities = Collections.unmodifiableMap(new HashMap<>(dailyCapacities));
 	}
 
 	ResourceId id() {
